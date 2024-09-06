@@ -1,9 +1,10 @@
 import java.util.Scanner;
 
-public class ArvoreDeNatal
+public class ArvoreDeNatalJava
 {
     public static void main(String[] args)
     {
+        System.out.println("\n");
         String pL = "\n";
         System.out.print("Arvore de natal, escolha a altura: ");
         Scanner leia = new Scanner(System.in);
@@ -11,10 +12,12 @@ public class ArvoreDeNatal
         do
         {
             h = leia.nextInt();
+            leia.close();
             if (h <= 0)
             {
                 System.out.print("ERRO!!!! escreva um valor maior do que 0: ");
             }
+        System.out.println("\n");
         }while(h <= 0);
         int ht = h/8;
         if (ht < 1) {
@@ -48,6 +51,6 @@ public class ArvoreDeNatal
                 System.out.print("|");
             }
         }
-
+        System.out.println("\n");
     }
 }
