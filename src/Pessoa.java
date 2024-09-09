@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Pessoa
 {
@@ -12,9 +13,12 @@ public class Pessoa
     {
         return altura;
     }
-    public LocalDate getDataDeNascimento()
+    public String getDataDeNascimento()
     {
-        return dataDeNascimento;
+        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String data = dataDeNascimento.format(formatador);
+        return data;
+
     }
     public String getNome()
     {
@@ -24,14 +28,27 @@ public class Pessoa
     {
         return peso;
     }
-    public boolean getSexo()
+    public String getSexo()
     {
-        return sexo;
+        String sexoString = "";
+        if (this.sexo == false) {
+            sexoString = "Masculino";
+        } else {
+            if (this.sexo == true) {
+                sexoString = "Feminino";
+            }
+        }
+        return sexoString;
     }
     //setters
     public void setAltura(double altura) {
-        this.altura = altura;
+        if (altura < 0) {
+            
+        } else {
+            this.altura = altura;
+        }
     }
+
     public void setPeso(double peso) {
         this.peso = peso;
     }
@@ -39,8 +56,10 @@ public class Pessoa
         this.nome = nome;
     }
     public void setDataDeNascimento(String dataDeNascimento) {
-        
-        this.dataDeNascimento = dataDeNascimento;
+        LocalDate data;
+        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        data = LocalDate.parse(dataDeNascimento, formatador);
+        this.dataDeNascimento = data;
     }
     public void setSexo(String sexo) {
         if (sexo == "m") {
@@ -49,6 +68,7 @@ public class Pessoa
             this.sexo = true;
         }
     }
+    //construtores
     public Pessoa() {
     }
     public Pessoa(double altura, double peso, String nome, String dataDeNascimento, String sexo) {
@@ -57,6 +77,10 @@ public class Pessoa
         this.setNome(nome);
         this.setDataDeNascimento(dataDeNascimento);
         this.setSexo(sexo);
+    }
+    //metodos
+    public void show() {
+        System.out.println(" Altura     : " + getAltura()+ "\n Peso       : " +getPeso() + "\n Aniversario: " + getDataDeNascimento() + "\n Nome       : " +getNome() + "\n Sexo       : " + getSexo());
     }
     
 }   
