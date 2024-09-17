@@ -82,5 +82,4 @@ public class Pessoa
     public void show() {
         System.out.println(" Altura     : " + getAltura()+ "\n Peso       : " +getPeso() + "\n Aniversario: " + getDataDeNascimento() + "\n Nome       : " +getNome() + "\n Sexo       : " + getSexo());
     }
-    
 }   

@@ -50,6 +50,7 @@ public class ArvoreDeNatalJava
             for (int iTT = 0; iTT < ((2*tT)+1); iTT++) {
                 System.out.print("|");
             }
+            System.out.print("\n");
         }
         System.out.println("\n");
     }
